@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <!-- Faz o jogo caber certinho na tela do celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Clicker Pixel</title>
+  <title>Clicker RPG Pixel</title>
   <!-- Liga o arquivo de estilo (cores e visual) -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,11 +12,11 @@
 
   <!-- TELA DE INÍCIO -->
   <section id="tela-inicio" class="tela">
-    <h1>CLICKER PIXEL</h1>
+    <h1>CLICKER RPG</h1>
     <div class="emoji-grande">🥚</div>
-    <p>Clique no personagem para ganhar moedas.<br>
-       Use as moedas para evoluir até o final.<br>
-       Cuidado: as moedas acabam com o tempo!</p>
+    <p>Enfrente monstros em batalhas por turnos.<br>
+       Ganhe moedas, melhore sua luva e evolua.<br>
+       Derrote o chefe final para vencer!</p>
     <button id="botao-jogar" class="botao">JOGAR</button>
   </section>
 
@@ -27,14 +27,35 @@
       <span>⭐ Nível <strong id="nivel">1</strong>/5</span>
     </div>
 
-    <p id="nome-personagem">Ovo</p>
-    <!-- O personagem é um botão: clicar (ou tocar) nele dá moedas -->
-    <button id="personagem" class="personagem" aria-label="Clique para ganhar moedas">🥚</button>
-    <p class="dica">+<span id="por-clique">1</span> moeda por clique</p>
+    <!-- Área de batalha: herói de um lado, monstro do outro -->
+    <div class="arena">
+      <div class="lutador">
+        <div id="emoji-heroi" class="emoji-lutador">🥚</div>
+        <div class="barra"><div id="vida-heroi" class="barra-cheia"></div></div>
+        <small id="texto-vida-heroi"></small>
+      </div>
+      <div class="lutador">
+        <div id="emoji-monstro" class="emoji-lutador">🐀</div>
+        <div class="barra"><div id="vida-monstro" class="barra-cheia barra-monstro"></div></div>
+        <small id="texto-vida-monstro"></small>
+      </div>
+    </div>
 
-    <div class="loja">
-      <button id="botao-luva" class="botao botao-loja">🧤 Luva: +1 por clique<br>Custa <span id="custo-luva">15</span></button>
-      <button id="botao-evoluir" class="botao botao-loja">⬆️ Evoluir<br>Custa <span id="custo-evoluir">20</span></button>
+    <!-- Mensagem do que acabou de acontecer -->
+    <p id="mensagem" class="mensagem"></p>
+
+    <!-- Botões da batalha (seu turno) -->
+    <div id="menu-batalha" class="menu">
+      <button id="botao-atacar" class="botao botao-acao">⚔️ Atacar</button>
+      <button id="botao-defender" class="botao botao-acao">🛡️ Defender</button>
+      <button id="botao-curar" class="botao botao-acao">💚 Curar<br><small>10 moedas</small></button>
+    </div>
+
+    <!-- Botões da loja (aparecem depois de vencer um monstro) -->
+    <div id="menu-loja" class="menu escondida">
+      <button id="botao-luva" class="botao botao-acao">🧤 Luva +2 dano<br><small>Custa <span id="custo-luva">20</span></small></button>
+      <button id="botao-evoluir" class="botao botao-acao">⬆️ Evoluir<br><small>Custa <span id="custo-evoluir">30</span></small></button>
+      <button id="botao-proxima" class="botao botao-acao">➡️ Próxima batalha</button>
     </div>
 
     <button id="botao-reiniciar-jogo" class="botao botao-pequeno">REINICIAR</button>
