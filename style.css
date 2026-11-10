@@ -1,0 +1,89 @@
+/* ===== CORES (só 3 + texto) =====
+   Roxo escuro = fundo | Amarelo = moedas e botões | Menta = destaques */
+:root {
+  --fundo: #241a3d;
+  --amarelo: #ffd23f;
+  --menta: #3ee0a0;
+  --texto: #f5efe0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fundo);
+  color: var(--texto);
+  /* Fonte "de computador antigo" que já existe em todo PC */
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Cada tela ocupa uma coluna no meio */
+.tela {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* A classe "escondida" some com a tela */
+.escondida { display: none; }
+
+h1 { color: var(--amarelo); font-size: 2rem; margin: 0; }
+
+.emoji-grande { font-size: 5rem; }
+
+/* ===== BOTÕES com borda "quadradinha" estilo pixel ===== */
+.botao {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--fundo);
+  background: var(--amarelo);
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  /* A sombra sólida dá o efeito de botão 3D de 8 bits */
+  box-shadow: 4px 4px 0 var(--menta);
+  touch-action: manipulation; /* evita zoom ao tocar rápido no celular */
+}
+.botao:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--menta); }
+.botao:disabled { opacity: 0.4; cursor: not-allowed; }
+.botao-pequeno { font-size: 0.85rem; padding: 8px 14px; }
+
+/* ===== PAINEL DE PONTOS ===== */
+.painel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  border: 4px solid var(--menta);
+  padding: 10px 14px;
+}
+
+/* ===== PERSONAGEM ===== */
+.personagem {
+  font-size: 7rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  touch-action: manipulation;
+  user-select: none;
+}
+.personagem:active { transform: scale(0.88); }
+
+#nome-personagem { color: var(--menta); font-size: 1.4rem; margin: 0; }
+.dica { margin: 0; font-size: 0.9rem; }
+
+/* ===== LOJA ===== */
+.loja { display: flex; gap: 12px; width: 100%; }
+.botao-loja { flex: 1; font-size: 0.85rem; }
