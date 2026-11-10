@@ -1,5 +1,5 @@
 /* ===== CORES (só 3 + texto) =====
-   Roxo escuro = fundo | Amarelo = moedas e botões | Menta = destaques */
+   Roxo escuro = fundo | Amarelo = botões e moedas | Menta = destaques */
 :root {
   --fundo: #241a3d;
   --amarelo: #ffd23f;
@@ -26,19 +26,18 @@ body {
 /* Cada tela ocupa uma coluna no meio */
 .tela {
   width: 100%;
-  max-width: 420px;
-  padding: 20px;
+  max-width: 460px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
-/* A classe "escondida" some com a tela */
-.escondida { display: none; }
+/* A classe "escondida" some com o elemento */
+.escondida { display: none !important; }
 
 h1 { color: var(--amarelo); font-size: 2rem; margin: 0; }
-
 .emoji-grande { font-size: 5rem; }
 
 /* ===== BOTÕES com borda "quadradinha" estilo pixel ===== */
@@ -58,32 +57,43 @@ h1 { color: var(--amarelo); font-size: 2rem; margin: 0; }
 .botao:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--menta); }
 .botao:disabled { opacity: 0.4; cursor: not-allowed; }
 .botao-pequeno { font-size: 0.85rem; padding: 8px 14px; }
+.botao-acao { flex: 1; font-size: 0.85rem; padding: 10px 6px; }
 
 /* ===== PAINEL DE PONTOS ===== */
 .painel {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border: 4px solid var(--menta);
-  padding: 10px 14px;
+  padding: 8px 14px;
 }
 
-/* ===== PERSONAGEM ===== */
-.personagem {
-  font-size: 7rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  touch-action: manipulation;
-  user-select: none;
+/* ===== ARENA DE BATALHA ===== */
+.arena {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 10px 0;
 }
-.personagem:active { transform: scale(0.88); }
+.lutador { width: 42%; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.emoji-lutador { font-size: 4.5rem; line-height: 1; }
 
-#nome-personagem { color: var(--menta); font-size: 1.4rem; margin: 0; }
-.dica { margin: 0; font-size: 0.9rem; }
+/* Barra de vida */
+.barra { width: 100%; height: 14px; border: 3px solid var(--texto); background: var(--fundo); }
+.barra-cheia { height: 100%; width: 100%; background: var(--menta); transition: width 0.3s steps(6); }
+.barra-monstro { background: var(--amarelo); }
 
-/* ===== LOJA ===== */
-.loja { display: flex; gap: 12px; width: 100%; }
-.botao-loja { flex: 1; font-size: 0.85rem; }
+/* Efeito de "tremer" quando alguém leva dano */
+.tremer { animation: tremer 0.25s steps(4); }
+@keyframes tremer {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+.mensagem { min-height: 3em; margin: 0; font-size: 1rem; }
+
+/* ===== MENUS DE AÇÃO ===== */
+.menu { display: flex; gap: 10px; width: 100%; }
