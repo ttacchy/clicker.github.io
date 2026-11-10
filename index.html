@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Faz o jogo caber certinho na tela do celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clicker Pixel</title>
+  <!-- Liga o arquivo de estilo (cores e visual) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TELA DE INÍCIO -->
+  <section id="tela-inicio" class="tela">
+    <h1>CLICKER PIXEL</h1>
+    <div class="emoji-grande">🥚</div>
+    <p>Clique no personagem para ganhar moedas.<br>
+       Use as moedas para evoluir até o final.<br>
+       Cuidado: as moedas acabam com o tempo!</p>
+    <button id="botao-jogar" class="botao">JOGAR</button>
+  </section>
+
+  <!-- TELA DO JOGO -->
+  <section id="tela-jogo" class="tela escondida">
+    <div class="painel">
+      <span>💰 <strong id="moedas">0</strong></span>
+      <span>⭐ Nível <strong id="nivel">1</strong>/5</span>
+    </div>
+
+    <p id="nome-personagem">Ovo</p>
+    <!-- O personagem é um botão: clicar (ou tocar) nele dá moedas -->
+    <button id="personagem" class="personagem" aria-label="Clique para ganhar moedas">🥚</button>
+    <p class="dica">+<span id="por-clique">1</span> moeda por clique</p>
+
+    <div class="loja">
+      <button id="botao-luva" class="botao botao-loja">🧤 Luva: +1 por clique<br>Custa <span id="custo-luva">15</span></button>
+      <button id="botao-evoluir" class="botao botao-loja">⬆️ Evoluir<br>Custa <span id="custo-evoluir">20</span></button>
+    </div>
+
+    <button id="botao-reiniciar-jogo" class="botao botao-pequeno">REINICIAR</button>
+  </section>
+
+  <!-- TELA DE FIM (vitória ou derrota) -->
+  <section id="tela-fim" class="tela escondida">
+    <h1 id="titulo-fim"></h1>
+    <div id="emoji-fim" class="emoji-grande"></div>
+    <p id="mensagem-fim"></p>
+    <button id="botao-reiniciar-fim" class="botao">JOGAR DE NOVO</button>
+  </section>
+
+  <!-- Liga o arquivo com a lógica do jogo -->
+  <script src="script.js"></script>
+</body>
+</html>
